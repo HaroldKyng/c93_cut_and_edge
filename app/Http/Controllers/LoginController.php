@@ -92,7 +92,7 @@ class LoginController extends Controller
 
             //invoke
 
-            return redirect()->route('home')->with('success', 'Successfully Logged in');
+            return redirect()->route('dashboard')->with('success', 'Successfully Logged in');
         } else {
 //            dd("email".$request->email."passkey".$request->password);
             return back()->with('error', 'Invalid credentials. Please try again.');

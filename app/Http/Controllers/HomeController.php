@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\WhiteBoard;
+use App\Models\WhiteBoardDimension;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,4 +27,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function homepage()
+    {
+        $white_boards = WhiteBoard::all();
+        $white_board_dimensions = WhiteBoardDimension::all();
+        return view('welcome',compact('white_boards','white_board_dimensions'));
+    }
 }
+

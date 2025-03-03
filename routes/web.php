@@ -34,7 +34,8 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('/clear-sessions', 'clear')->name('clear.sessions');
     Route::get('logout', 'logout')->name('logout');
 });
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::get('/', [HomeController::class, 'homepage'])->name('home');
 Route::group(['middleware' => ['auth']], function () {
 
 
