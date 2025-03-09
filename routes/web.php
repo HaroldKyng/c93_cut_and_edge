@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::get('/', [HomeController::class, 'homepage'])->name('home');
 
 Route::controller(LoginController::class)->group(function () {
 //    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -30,12 +32,11 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('/forgot/process', 'forgot_password_process')->name('forgot_password.process');
     Route::get('/support-page', 'support_page')->name('support_page');
     Route::get('/login', 'index')->name('login');
-    Route::get('dashboard', 'dashboard')->name('dashboard');
+//    Route::get('dashboard', 'dashboard')->name('dashboard');
     Route::get('/clear-sessions', 'clear')->name('clear.sessions');
     Route::get('logout', 'logout')->name('logout');
 });
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
-Route::get('/', [HomeController::class, 'homepage'])->name('home');
+
 Route::group(['middleware' => ['auth']], function () {
 
 
